@@ -2,15 +2,21 @@
   <div id="app">
     <img src="./assets/logo.png">
     <v-header></v-header>
-    <router-view></router-view>
+    <input type="text" v-model="parentMsg">
+    <hr>
+    <router-view :propMessage='parentMsg'></router-view>
   </div>
 </template>
 
 <script>
   import header from './components/header/header.vue'
   export default {
-
     name: 'app',
+    data () {
+      return {
+        parentMsg: ''
+      }
+    },
     components: {
       'v-header': header
     }
